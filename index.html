@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+   
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&amp;display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="wrapper">
+            <div class="header__inner">
+                <nav class="header__navbar">
+                    <ul class="navbar">
+                        <li><a class="this-week" href="#">Текущая неделя</a></li>
+                        <li><a class="final-marks" href="#">Итоговые отметки</a></li>
+                        <li><a class="navbar__btn" href="#">Добавить предмет</a></li>
+                    </ul>
+                    <input type="date" class="header__date" id="date" max="2021-02-15">
+                </nav>
+                <div class="arrow prev"></div>
+                <div class="arrow next"></div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="journal">
+            <div class="wrapper">
+                <div class="journal__inner">
+                    <div class="journal__week">
+                        <div class="journal__days column-left">
+                            <div class="journal__day">
+                                
+                                <table class="journal__table">
+                                    <thead>
+                                        <tr> 
+                                            <th class="journal__date journal__date-day" colspan="2">Понедельник</th>
+                                            <th class="journal__date" id='dates' colspan="2">01.02.2021</th>
+                                        </tr>
+                                        <tr>
+                                            <th class="thead-lesson">Предмет</th>
+                                            <th class="thead-ht">Домашнее задание</th>
+                                            <th class="thead-mark">Отметка</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="lesson">Бел. лит.</td>
+                                            <td class="ht"><div>описать любой памятник архитектуры стран изучаемого языка</div></td>
+                                            <td class="mark">9</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson">Бел. яз.</td>
+                                            <td class="ht"><div></div></td>
+                                            <td class="mark"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson">Матем.</td>
+                                            <td class="ht"><div>№ 1.537</div></td>
+                                            <td class="mark"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson">Англ. яз.</td>
+                                            <td class="ht"><div></div></td>
+                                            <td class="mark">5</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson">Информ.</td>
+                                            <td class="ht"><div></div></td>
+                                            <td class="mark"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson">Бел. лит.</td>
+                                            <td class="ht"><div>описать любой памятник архитектуры стран изучаемого языка</div></td>
+                                            <td class="mark">9</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson">Бел. лит.</td>
+                                            <td class="ht"><div>описать любой памятник архитектуры стран изучаемого языка</div></td>
+                                            <td class="mark">9</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                            </div>
+                            <div class="journal__day">
+                               
+                                <table class="journal__table">
+                                    <thead>
+                                        <tr> 
+                                            <th class="journal__date journal__date-day" colspan="2">Вторник</th>
+                                            <th class="journal__date" id='dates' colspan="2">02.02.2021</th>
+                                        </tr>
+                                        <tr>
+                                            <th class="thead-lesson">Предмет</th>
+                                            <th class="thead-ht">Домашнее задание</th>
+                                            <th class="thead-mark">Отметка</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="lesson">Бел. лит.</td>
+                                            <td class="ht"><div>описать любой памятник архитектуры стран изучаемого языка</div></td>
+                                            <td class="mark">9</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson">Бел. яз.</td>
+                                            <td class="ht"><div></div></td>
+                                            <td class="mark"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson">Матем.</td>
+                                            <td class="ht"><div>№ 1.537</div></td>
+                                            <td class="mark"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson">Англ. яз.</td>
+                                            <td class="ht"><div></div></td>
+                                            <td class="mark">5</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson">Информ.</td>
+                                            <td class="ht"><div></div></td>
+                                            <td class="mark"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson">Бел. лит.</td>
+                                            <td class="ht"><div>описать любой памятник архитектуры стран изучаемого языка</div></td>
+                                            <td class="mark">9</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson">Бел. лит.</td>
+                                            <td class="ht"><div>описать любой памятник архитектуры стран изучаемого языка</div></td>
+                                            <td class="mark">9</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                            </div>
+                            <div class="journal__day">
+                                
+                                <table class="journal__table">
+                                    <thead>
+                                        <tr> 
+                                            <th class="journal__date journal__date-day" colspan="2">Среда</th>
+                                            <th class="journal__date" id='dates' colspan="2">03.02.2021</th>
+                                        </tr>
+                                        <tr>
+                                            <th class="thead-lesson">Предмет</th>
+                                            <th class="thead-ht">Домашнее задание</th>
+                                            <th class="thead-mark">Отметка</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="lesson">Бел. лит.</td>
+                                            <td class="ht"><div>описать любой памятник архитектуры стран изучаемого языка</div></td>
+                                            <td class="mark">9</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson">Бел. яз.</td>
+                                            <td class="ht"><div></div></td>
+                                            <td class="mark"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson">Матем.</td>
+                                            <td class="ht"><div>№ 1.537</div></td>
+                                            <td class="mark"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson">Англ. яз.</td>
+                                            <td class="ht"><div></div></td>
+                                            <td class="mark">5</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson">Информ.</td>
+                                            <td class="ht"><div></div></td>
+                                            <td class="mark"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson">Бел. лит.</td>
+                                            <td class="ht"><div>описать любой памятник архитектуры стран изучаемого языка</div></td>
+                                            <td class="mark">9</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson">Бел. лит.</td>
+                                            <td class="ht"><div>описать любой памятник архитектуры стран изучаемого языка</div></td>
+                                            <td class="mark">9</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                            </div>
+                        </div>
+                        <div class="journal__days column-right">
+                            <div class="journal__day">
+                                
+                                <table class="journal__table">
+                                    <thead>
+                                        <tr> 
+                                            <th class="journal__date journal__date-day" colspan="2">Четверг</th>
+                                            <th class="journal__date" id='dates' colspan="2">04.02.2021</th>
+                                        </tr>
+                                        <tr>
+                                            <th class="thead-lesson">Предмет</th>
+                                            <th class="thead-ht">Домашнее задание</th>
+                                            <th class="thead-mark">Отметка</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="lesson">Бел. лит.</td>
+                                            <td class="ht"><div>описать любой памятник архитектуры стран изучаемого языка</div></td>
+                                            <td class="mark">9</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson">Бел. яз.</td>
+                                            <td class="ht"><div></div></td>
+                                            <td class="mark"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson">Матем.</td>
+                                            <td class="ht"><div>№ 1.537</div></td>
+                                            <td class="mark"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson">Англ. яз.</td>
+                                            <td class="ht"><div></div></td>
+                                            <td class="mark">5</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson">Информ.</td>
+                                            <td class="ht"><div></div></td>
+                                            <td class="mark"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson">Бел. лит.</td>
+                                            <td class="ht"><div>описать любой памятник архитектуры стран изучаемого языка</div></td>
+                                            <td class="mark">9</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson">Бел. лит.</td>
+                                            <td class="ht"><div>описать любой памятник архитектуры стран изучаемого языка</div></td>
+                                            <td class="mark">9</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                            </div>
+                            <div class="journal__day">
+                                
+                                <table class="journal__table">
+                                    <thead>
+                                        <tr> 
+                                            <th class="journal__date journal__date-day" colspan="2">Пятница</th>
+                                            <th class="journal__date" id='dates' colspan="2">05.02.2021</th>
+                                        </tr>
+                                        <tr>
+                                            <th class="thead-lesson">Предмет</th>
+                                            <th class="thead-ht">Домашнее задание</th>
+                                            <th class="thead-mark">Отметка</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="lesson">Бел. лит.</td>
+                                            <td class="ht"><div>описать любой памятник архитектуры стран изучаемого языка</div></td>
+                                            <td class="mark">9</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson">Бел. яз.</td>
+                                            <td class="ht"><div></div></td>
+                                            <td class="mark"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson">Матем.</td>
+                                            <td class="ht"><div>№ 1.537</div></td>
+                                            <td class="mark"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson">Англ. яз.</td>
+                                            <td class="ht"><div></div></td>
+                                            <td class="mark">5</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson">Информ.</td>
+                                            <td class="ht"><div></div></td>
+                                            <td class="mark"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson">Бел. лит.</td>
+                                            <td class="ht"><div>описать любой памятник архитектуры стран изучаемого языка</div></td>
+                                            <td class="mark">9</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson">Бел. лит.</td>
+                                            <td class="ht"><div>описать любой памятник архитектуры стран изучаемого языка</div></td>
+                                            <td class="mark">9</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                            </div>
+                            <div class="journal__day">
+                                
+                                <table class="journal__table">
+                                    <thead>
+                                        <tr> 
+                                            <th class="journal__date journal__date-day" colspan="2">Суббота</th>
+                                            <th class="journal__date" id='dates' colspan="2">06.02.2021</th>
+                                        </tr>
+                                        <tr>
+                                            <th class="thead-lesson">Предмет</th>
+                                            <th class="thead-ht">Домашнее задание</th>
+                                            <th class="thead-mark">Отметка</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="lesson"></td>
+                                            <td class="ht"><div></div></td>
+                                            <td class="mark"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson"></td>
+                                            <td class="ht"><div></div></td>
+                                            <td class="mark"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson"></td>
+                                            <td class="ht"><div></div></td>
+                                            <td class="mark"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson"></td>
+                                            <td class="ht"><div></div></td>
+                                            <td class="mark"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson"></td>
+                                            <td class="ht"><div></div></td>
+                                            <td class="mark"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson"></td>
+                                            <td class="ht"><div></div></td>
+                                            <td class="mark"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lesson"></td>
+                                            <td class="ht"><div></div></td>
+                                            <td class="mark"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="summary-page">
+                        <h3>Четвертные и годовые отметки</h3>
+                        <table class="summary-page__table">
+                            <thead>
+                                <tr>
+                                    <th>Предметы</th>
+                                    <th class="qdates">1 четверть</th>
+                                    <th class="qdates">2 четверть</th>
+                                    <th class="qdates">3 четверть</th>
+                                    <th class="qdates">4 четверть</th>
+                                    <th class="qdates">Годовая</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="marks">
+                                    <td class="marks__lesson">1. Англ. яз.</td>
+                                    <td class="qmark">5</td>
+                                    <td class="qmark">7</td>
+                                    <td class="qmark">8</td>
+                                    <td class="qmark">9</td>
+                                    <td class="ymark">6</td>
+                                </tr>
+                                <tr class="marks">
+                                    <td class="marks__lesson">2. Бел. лит.</td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="ymark"></td>
+                                </tr>
+                                <tr class="marks">
+                                    <td class="marks__lesson">3. Бел. яз.</td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="ymark"></td>
+                                </tr>
+                                <tr class="marks">
+                                    <td class="marks__lesson">4. Биология</td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="ymark"></td>
+                                </tr>
+                                <tr class="marks">
+                                    <td class="marks__lesson">5. Всемир. ист.</td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="ymark"></td>
+                                </tr>
+                                <tr class="marks">
+                                    <td class="marks__lesson">6. География</td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="ymark"></td>
+                                </tr>
+                                <tr class="marks">
+                                    <td class="marks__lesson">7. ДП/МП</td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="ymark"></td>
+                                </tr>
+                                <tr class="marks">
+                                    <td class="marks__lesson">8. Информ.</td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="ymark"></td>
+                                </tr>
+                                <tr class="marks">
+                                    <td class="marks__lesson">9. Ист. Бел.</td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="ymark"></td>
+                                </tr>
+                                <tr class="marks">
+                                    <td class="marks__lesson">10. Матем.</td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="ymark"></td>
+                                </tr>
+                                <tr class="marks">
+                                    <td class="marks__lesson">11. Обществов.</td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="ymark"></td>
+                                </tr>
+                                <tr class="marks">
+                                    <td class="marks__lesson">12. Рус. лит.</td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="ymark"></td>
+                                </tr>
+                                <tr class="marks">
+                                    <td class="marks__lesson">13. Рус. яз.</td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="ymark"></td>
+                                </tr>
+                                <tr class="marks">
+                                    <td class="marks__lesson">14. Физика</td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="ymark"></td>
+                                </tr>
+                                <tr class="marks">
+                                    <td class="marks__lesson">15. Физ. к. и зд.</td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="ymark"></td>
+                                </tr>
+                                <tr class="marks">
+                                    <td class="marks__lesson">16. Химия</td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="ymark"></td>
+                                </tr>
+                                <tr class="average-marks">
+                                    <td class="marks__lesson">Средний балл</td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                    <td class="qmark"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal">
+                        <div class="modal__body">
+                            <form class="modal__form" action="">
+                                <div class="modal__header">
+                                    <div class="modal__day">
+                                        <label>Выберите день</label>
+                                        <input type="date">
+                                    </div>
+                                    <div class="modal__number">
+                                        <label>Выберите урок</label>
+                                        <select>
+                                            <option selected="disabled" hidden></option>
+                                         <option value="1">1</option>
+                                         <option value="2">2</option>
+                                         <option value="3">3</option>
+                                         <option value="4">4</option>
+                                         <option value="5">5</option>
+                                         <option value="6">6</option>
+                                         <option value="7">7</option>
+                                     </select>
+                                    </div>
+                                    <div class="modal__lesson">
+                                        <label for="">Выберите предмет</label>
+                                        <select name="" id="">
+                                            <option selected="disabled" hidden></option>
+                                        <option value="">Англ. яз.</option>
+                                        <option value="">Бел. лит.</option>
+                                        <option value="">Бел. яз.</option>
+                                        <option value="">Биология</option>
+                                        <option value="">Всемир. ист.</option>
+                                        <option value="">География</option>
+                                        <option value="">ДП/МП</option>
+                                        <option value="">Информ.</option>
+                                        <option value="">Ист. Бел.</option>
+                                        <option value="">Матем.</option>
+                                        <option value="">Обществов.</option>
+                                        <option value="">Рус. лит.</option>
+                                        <option value="">Рус. яз.</option>
+                                        <option value="">Физика</option>
+                                        <option value="">Физ. к. и зд.</option>
+                                        <option value="">Химия</option>
+                                    </select>
+                                    </div>
+                                </div>
+                                <div class="modal__footer">                                    
+                                    <textarea class="modal__textarea" maxlength="180"></textarea>                                    
+                                    <div class="modal__container">
+                                        <label>Оценка</label>
+                                        <select>
+                                            <option value="0"></option>
+                                            <option value="1">0</option>
+                                            <option value="2">1</option>
+                                            <option value="3">2</option>
+                                            <option value="4">3</option>
+                                            <option value="5">4</option>
+                                            <option value="6">5</option>
+                                            <option value="7">6</option>
+                                            <option value="8">7</option>
+                                            <option value="9">8</option>
+                                            <option value="10">9</option>
+                                            <option value="11">10</option>
+                                        </select>
+                                        <div class="modal__buttons">
+                                            <button>Сохранить</button>
+                                            <button class="close">Отмена</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer"></footer>
+    <script src="./script.js"></script>
+    <script src="./calendar.js"></script>
+</body>
+
+</html>
