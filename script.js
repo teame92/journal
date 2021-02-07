@@ -37,23 +37,24 @@ for (let i of marks) {
 }
 
 
-const week = document.querySelector('.this-week')
-const finalMarks =document.querySelector('.final-marks')
+const week = document.querySelectorAll('.this-week')
+const finalMarks =document.querySelectorAll('.final-marks')
 const journal = document.querySelector('.journal__week')
 const summary = document.querySelector('.summary-page')
 
-
-week.addEventListener('click', (e) => {
+for (let key of week) {
+key.addEventListener('click', (e) => {
     e.preventDefault()
     summary.style.display = 'none'
     journal.style.display = 'flex'   
-})
+})}
 
-finalMarks.addEventListener('click', (e) => {
+for (let k of finalMarks) {
+k.addEventListener('click', (e) => {
     e.preventDefault()
     summary.style.display = 'flex'
     journal.style.display = 'none'    
-})
+})}
 
 
 

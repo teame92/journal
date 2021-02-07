@@ -13,12 +13,11 @@ body {
     background-image: url(./img/chess.png);
 }
 
-ol,
-ul {
+ol, ul {
     list-style: none;
 }
 
-.header {    
+.header {
     background-color: #f06c64;
     color: #F0D8D9;
 }
@@ -50,8 +49,51 @@ ul {
 .navbar {
     display: flex;
     justify-content: space-between;
-    width: 60%;
+    width: 70%;
     align-items: center;
+}
+
+.burger {
+    display: none;
+    position: relative;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.burger__line {
+    display: inline-block;
+    position: absolute;
+    height: 2.4px;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 5px;
+    top: calc(50% - 1.2px);
+}
+
+.burger-menu {
+        display: flex;
+    position: relative;
+    width: 278px;
+    height: 100%;
+    background: #2D303A;
+}
+
+.burger-rotate {
+    transform: rotate( 90deg);
+    transition: transform 5s;
+    top: 22px;
+    left: 23px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    background: rgba(0, 0, 0, 0.4);
 }
 
 .navbar a {
@@ -63,7 +105,7 @@ ul {
     height: 100%;
     padding: 5px 5px;
     text-decoration: none;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 .navbar a:hover {
@@ -83,7 +125,7 @@ ul {
     background-clip: padding-box;
     border: 1px solid #ced4da;
     border-radius: .25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 .arrow {
@@ -104,10 +146,10 @@ ul {
     right: 20px;
 }
 
-.journal{
+.journal {
     width: 100%;
     max-width: 1020px;
-    margin: 0 auto;    
+    margin: 0 auto;
 }
 
 .journal__inner {
@@ -122,7 +164,7 @@ ul {
 }
 
 .journal__days {
-    width: 49%;    
+    width: 49%;
 }
 
 .journal__day, .summary-page__table {
@@ -190,16 +232,6 @@ ul {
     text-align: center;
 }
 
-
-
-
-
-
-
-
-
-
-
 .summary-page {
     display: none;
     flex-direction: column;
@@ -234,9 +266,6 @@ h3 {
 .qdates {
     width: calc(80%/5);
 }
-
-
-
 
 .modal {
     display: flex;
@@ -293,7 +322,7 @@ h3 {
     background-clip: padding-box;
     border: 1px solid #ced4da;
     border-radius: .25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 .modal__footer {
@@ -302,9 +331,9 @@ h3 {
     padding-top: 40px;
 }
 
-.modal__textarea {    
+.modal__textarea {
     width: 80%;
-    height: 80px;    
+    height: 80px;
     margin-left: auto;
     resize: none;
 }
@@ -330,10 +359,44 @@ h3 {
     height: 100%;
     padding: 5px 5px;
     text-decoration: none;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 .modal__buttons button:hover {
     color: #F0D8D9;
     background-color: black;
+}
+
+@media screen and (max-width: 767px) {
+    .navbar {
+        display: none;
+    }
+    .header__navbar {
+        justify-content: space-evenly;
+    }
+    .burger {
+        display: block;
+    }
+    .burger::before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        height: 2.4px;
+        width: 100%;
+        background: #ffffff;
+        border-radius: 5px;
+        top: 0;
+        left: 0;
+    }
+    .burger::after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        height: 2.4px;
+        width: 100%;
+        background: #ffffff;
+        border-radius: 5px;
+        left: 0;
+        bottom: 0;
+    }
 }
