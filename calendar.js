@@ -1,4 +1,3 @@
-
 const prev = document.querySelector('.prev')
 const next = document.querySelector('.next')
 const calendarDay = document.querySelector('#date')
@@ -16,60 +15,50 @@ if (month < 10) {
 let today = `${year}-${month}-${day}`;
 calendarDay.value = today;
 
-
-function addDays() {
-    let currD = new Date(calendarDay.value)
-    currD.setDate(currD.getDate() + 1);
-    calendarDay.valueAsDate = currD;
-}
-
-
-
-
 const dateDay = document.querySelectorAll('#dates')
 let dates = [];
-function getWeekDates(d) {
-    let day_milliseconds = 24 * 60 * 60 * 1000;
 
+function getWeekDates(d) {    
+    let dayMilliseconds = 24 * 60 * 60 * 1000;
     let current_date = new Date(d);
-    let monday = new Date(current_date.getTime() - (current_date.getDay() - 1) * day_milliseconds);
+    let monday = new Date(current_date.getTime() - (current_date.getDay() - 1) * dayMilliseconds);
 
     for (let i = 0; i < 6; i++) {
-        let cd = new Date(monday.getTime() + i * day_milliseconds)
-        let year = cd.getFullYear()
-        let month = cd.getMonth() + 1
-        let day = cd.getDate()
+        let weekDay = new Date(monday.getTime() + i * dayMilliseconds)
+        let year = weekDay.getFullYear()
+        let month = weekDay.getMonth() + 1
+        let day = weekDay.getDate()
         if (day < 10) {
             day = "0" + day
         }
         if (month < 10) {
             month = "0" + month
         }
-        let t = `${day}.${month}.${year}`
-        dates.push(t);
+        let valueDay = `${day}.${month}.${year}`
+        dates.push(valueDay);
     }
-
     return dates;
 }
 
-prev.addEventListener('click', () => {
-    let currD = new Date(calendarDay.value)
-    currD.setDate(currD.getDate() - 1);
-    calendarDay.valueAsDate = currD;
+function setDays () {
     dates = []
     getWeekDates(calendarDay.value)
-    for (let i = 0; i <= dates.length; i++) {
+    for (let i = 0; i < dates.length; i++) {
         dateDay[i].innerHTML = dates[i]
     }
-})
+}
 
-next.addEventListener('click', addDays)
+function changeDays(d = -1) {
+    let currDay = new Date(calendarDay.value)
+    currDay.setDate(currDay.getDate() + d);
+    calendarDay.valueAsDate = currDay;
+    setDays ()
+}
+
+prev.addEventListener('click', () => changeDays())
+
+next.addEventListener('click', () => changeDays(1))
 
 getWeekDates(calendarDay.value)
-calendarDay.addEventListener('change', () => {
-    dates = []
-    getWeekDates(calendarDay.value)
-    for (let i = 0; i <= dates.length; i++) {
-        dateDay[i].innerHTML = dates[i]
-    }
-})
+
+calendarDay.addEventListener('change', setDays)

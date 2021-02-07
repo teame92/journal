@@ -74,7 +74,8 @@ ol, ul {
 .burger-menu {
         display: flex;
     position: relative;
-    width: 278px;
+    width: 45%;
+    max-width: 270px;
     height: 100%;
     background: #2D303A;
 }
@@ -126,6 +127,11 @@ ol, ul {
     border: 1px solid #ced4da;
     border-radius: .25rem;
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.header__date.active__date {
+    position: relative;
+    left: 76px;
 }
 
 .arrow {
@@ -368,15 +374,23 @@ h3 {
 }
 
 @media screen and (max-width: 767px) {
+
+    .wrapper {
+        padding: 0 5px;
+    }
+
     .navbar {
         display: none;
     }
+
     .header__navbar {
         justify-content: space-evenly;
     }
+
     .burger {
         display: block;
     }
+
     .burger::before {
         content: "";
         display: inline-block;
@@ -388,6 +402,7 @@ h3 {
         top: 0;
         left: 0;
     }
+
     .burger::after {
         content: "";
         display: inline-block;
@@ -398,5 +413,33 @@ h3 {
         border-radius: 5px;
         left: 0;
         bottom: 0;
+    }
+    
+    .ht div {
+        padding: 0px;
+        margin: 5px;
+    }
+}
+
+@media screen and (max-width: 497px) {
+
+    .column-right {
+        display: none;
+    }
+    
+    .column-left {
+        width: 100%;
+    }
+
+    .journal__day:not(:nth-child(1)) {
+        display: none;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    .summary-page__table {
+        font-size: 1rem;
     }
 }
