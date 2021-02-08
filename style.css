@@ -431,6 +431,10 @@ h3 {
         width: 100%;
     }
 
+    .journal__inner {
+        overflow-x: hidden;
+    }
+
     .journal__day:not(:nth-child(1)) {
         display: none;
     }
