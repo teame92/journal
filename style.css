@@ -13,6 +13,10 @@ body {
     background-image: url(./img/chess.png);
 }
 
+.scroll {
+    overflow: hidden;
+}
+
 ol, ul {
     list-style: none;
 }

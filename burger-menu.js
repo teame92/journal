@@ -1,56 +1,64 @@
 const header = document.querySelector('.header__navbar');
+const body = document.querySelector('.body')
 const burger = document.querySelector('.burger');
 const menu = document.querySelector('.navbar').cloneNode(true);
 const date = document.querySelector('.header__date')
 
-function addModal () {
-    const btn = document.querySelectorAll('.navbar__btn') 
+function addModal() {
+    const btn = document.querySelectorAll('.navbar__btn')
     const modal = document.querySelector('.modal')
     const closeBtn = document.querySelector('.close')
-    
-    for (let i of btn) {
-    i.addEventListener('click', (e) => {
+
+    document.addEventListener('click', (e) => {
         e.preventDefault()
-        modal.classList.add('open')
-    })}
+        if (e.target.closest('.navbar__btn')) {
+            modal.classList.add('open')
+            body.classList.add('scroll')
+        }
+    })
     modal.addEventListener('click', (e) => {
         if (!e.target.closest('.modal__body')) {
             modal.classList.remove('open')
+            body.classList.remove('scroll')
         }
     })
-    closeBtn.addEventListener('click', (e) => {
-        modal.classList.remove('open')
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('.close')) {
+            modal.classList.remove('open')
+            body.classList.remove('scroll')
+        }
     })
     window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             modal.classList.remove('open')
+            body.classList.remove('scroll')
         }
     })
 }
 
-function createHash () {
-    const week = document.querySelectorAll('.this-week')
-    const finalMarks =document.querySelectorAll('.final-marks')
+function createHash() {
     const journal = document.querySelector('.journal__week')
     const summary = document.querySelector('.summary-page')
 
-    for (let key of week) {
-    key.addEventListener('click', (e) => {
+    document.addEventListener('click', (e) => {
         e.preventDefault()
-        summary.style.display = 'none'
-        journal.style.display = 'flex'   
-    })}
+        if (e.target.closest('.this-week')) {
+            summary.style.display = 'none'
+            journal.style.display = 'flex'
+        }
+    })
 
-    for (let k of finalMarks) {
-    k.addEventListener('click', (e) => {
+    document.addEventListener('click', (e) => {
         e.preventDefault()
-        summary.style.display = 'flex'
-        journal.style.display = 'none'    
-    })}
+        if (e.target.closest('.final-marks')) {
+            summary.style.display = 'flex'
+            journal.style.display = 'none'
+        }
+    })
 }
 
-addModal ()
-createHash ()
+addModal()
+createHash()
 
 let div = document.createElement('div');
 let openModal = false;
@@ -67,6 +75,7 @@ menu.style.margin = 'auto';
 function closeModal() {
     div.remove();
     header.prepend(burger);
+    body.classList.remove('scroll')
     date.classList.remove('active__date')
     burger.classList.remove('burger-rotate');
     openModal = false;
@@ -77,18 +86,19 @@ function modalHandler() {
         closeModal();
         return;
     }
-    
+
+    body.classList.add('scroll')
     div.firstElementChild.prepend(burger);
     document.body.append(div);
     date.classList.add('active__date')
     burger.classList.add('burger-rotate');
     menu.addEventListener('click', closeModal);
     openModal = true;
-    
-    addModal ()
-    createHash ()      
-} 
-  
+
+    addModal()
+    createHash()
+}
+
 burger.addEventListener('click', modalHandler);
 
 div.addEventListener('click', (e) => {
