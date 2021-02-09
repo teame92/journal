@@ -16,9 +16,19 @@ let today = `${year}-${month}-${day}`;
 calendarDay.value = today;
 
 const dateDay = document.querySelectorAll('#dates')
+const weekDays = document.querySelectorAll('.journal__date-day')
 let dates = [];
+let days = [
+    'Понедельник',
+    'Вторник',
+    'Среда',
+    'Четверг',
+    'Пятница',
+    'Суббота',
+    'Воскресенье'
+]
 
-function getWeekDates(d) {    
+function getWeekDates(d) {
     let dayMilliseconds = 24 * 60 * 60 * 1000;
     let current_date = new Date(d);
     let monday = new Date(current_date.getTime() - (current_date.getDay() - 1) * dayMilliseconds);
@@ -40,11 +50,12 @@ function getWeekDates(d) {
     return dates;
 }
 
-function setDays () {
+function setDays() {
     dates = []
     getWeekDates(calendarDay.value)
     for (let i = 0; i < dates.length; i++) {
         dateDay[i].innerHTML = dates[i]
+        weekDays[i].innerHTML = days[i]
     }
 }
 
@@ -52,13 +63,27 @@ function changeDays(d = -1) {
     let currDay = new Date(calendarDay.value)
     currDay.setDate(currDay.getDate() + d);
     calendarDay.valueAsDate = currDay;
-    setDays ()
+    setDays()
 }
 
 prev.addEventListener('click', () => changeDays())
 
 next.addEventListener('click', () => changeDays(1))
 
+setDays()
+
 getWeekDates(calendarDay.value)
 
 calendarDay.addEventListener('change', setDays)
+
+function mobileWeb () {
+// const mDay = document.querySelector('.journal__day')
+
+dates = []
+    // getWeekDates(calendarDay.value)
+    // for (let i = 0; i < dates.length; i++) {
+        let mDay = new Date(calendarDay.value);
+        dateDay[0].innerHTML = calendarDay.value
+        weekDays[0].innerHTML = days[i]
+    // }
+}

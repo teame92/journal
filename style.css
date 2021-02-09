@@ -91,6 +91,11 @@ ol, ul {
     left: 23px;
 }
 
+.fake-span {
+    width: 25px;
+    height: 20px;
+}
+
 .overlay {
     position: fixed;
     top: 0;
@@ -131,11 +136,6 @@ ol, ul {
     border: 1px solid #ced4da;
     border-radius: .25rem;
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-}
-
-.header__date.active__date {
-    position: relative;
-    left: 76px;
 }
 
 .arrow {
