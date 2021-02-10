@@ -3,8 +3,6 @@ const body = document.querySelector('.body')
 const burger = document.querySelector('.burger');
 const menu = document.querySelector('.navbar').cloneNode(true);
 const modal = document.querySelector('.modal')
-const journal = document.querySelector('.journal__week')
-const summary = document.querySelector('.summary-page')
 
 document.addEventListener('click', (e) => {
     if (e.target.closest('.navbar__btn')) {
@@ -34,20 +32,7 @@ window.addEventListener('keydown', (e) => {
     }
 })
 
-document.addEventListener('click', (e) => {    
-    if (e.target.closest('.this-week')) {
-        summary.style.display = 'none'
-        journal.style.display = 'flex'
-    }
-})
 
-document.addEventListener('click', (e) => {
-    
-    if (e.target.closest('.final-marks')) {
-        summary.style.display = 'flex'
-        journal.style.display = 'none'
-    }
-})
 
 let div = document.createElement('div');
 let openModal = false;
