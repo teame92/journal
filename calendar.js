@@ -73,10 +73,10 @@ function setDays() {
         dateDay[i].innerHTML = dates[i]
         weekDays[i].innerHTML = days[i]
     }
-    if (checkHash) {
-        location.hash = `#${calendarDay.value}`        
-        // localStorage.setItem('hash', location.hash);
-    }
+    // if (checkHash) {
+    //     location.hash = `#${calendarDay.value}`        
+    //     // localStorage.setItem('hash', location.hash);
+    // }
     hash()
 }
 
@@ -118,6 +118,10 @@ function mobileDay() {
     if (mWeekDay === -1) mWeekDay = 6
     dateDay[0].innerHTML = calendarDay.value
     weekDays[0].innerHTML = days[mWeekDay]
+    // if (checkHash) {
+    //     location.hash = `#${calendarDay.value}`        
+    //     // localStorage.setItem('hash', location.hash);
+    // }
     hash()
 }
 
