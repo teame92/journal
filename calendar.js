@@ -23,14 +23,6 @@ if (localStorage.getItem('date')) {
     calendarDay.value = today;
 }
 
-// if (localStorage.getItem('hash')) {
-//     location.hash = localStorage.getItem('hash');
-// } else {
-//     location.hash = `#${calendarDay.value}`
-// }
-
-
-
 const dateDay = document.querySelectorAll('#dates')
 const weekDays = document.querySelectorAll('.journal__date-day')
 let dates = [];
@@ -66,27 +58,12 @@ function hash() {
     localStorage.setItem('date', calendarDay.value);
 }
 
-function setDays() {
-    dates = []
-    getWeekDates(calendarDay.value)
-    for (let i = 0; i < dates.length; i++) {
-        dateDay[i].innerHTML = dates[i]
-        weekDays[i].innerHTML = days[i]
-    }
-    // if (checkHash) {
-    //     location.hash = `#${calendarDay.value}`        
-    //     // localStorage.setItem('hash', location.hash);
-    // }
-    hash()
-}
-
 
 
 document.addEventListener('click', (e) => {
     if (e.target.closest('.this-week')) {
         checkHash = true
         location.hash = `#${calendarDay.value}`
-        // localStorage.setItem('hash', location.hash);
     }
 })
 
@@ -94,7 +71,6 @@ document.addEventListener('click', (e) => {
     if (e.target.closest('.final-marks')) {
         checkHash = false
         location.hash = '#marks'
-        // localStorage.setItem('hash', location.hash);
     }
 })
 
@@ -103,8 +79,7 @@ function changeDays(d = -1, func) {
     currDay.setDate(currDay.getDate() + d);
     calendarDay.valueAsDate = currDay;
     if (checkHash) {
-        location.hash = `#${calendarDay.value}`        
-        // localStorage.setItem('hash', location.hash);
+        location.hash = `#${calendarDay.value}`
     }
     func()
     hash()
@@ -112,16 +87,28 @@ function changeDays(d = -1, func) {
 
 getWeekDates(calendarDay.value)
 
+function setDays() {
+    dates = []
+    getWeekDates(calendarDay.value)
+    for (let i = 0; i < dates.length; i++) {
+        dateDay[i].innerHTML = dates[i]
+        weekDays[i].innerHTML = days[i]
+    }
+    if (checkHash) {
+        location.hash = `#${calendarDay.value}`
+    }
+    hash()
+}
+
 function mobileDay() {
     let mDay = new Date(calendarDay.value);
     let mWeekDay = mDay.getDay() - 1
     if (mWeekDay === -1) mWeekDay = 6
     dateDay[0].innerHTML = calendarDay.value
     weekDays[0].innerHTML = days[mWeekDay]
-    // if (checkHash) {
-    //     location.hash = `#${calendarDay.value}`        
-    //     // localStorage.setItem('hash', location.hash);
-    // }
+    if (checkHash) {
+        location.hash = `#${calendarDay.value}`
+    }
     hash()
 }
 
@@ -164,7 +151,7 @@ mediaQuery.addListener(handleTabletChange)
 
 handleTabletChange(mediaQuery)
 
-function changeLocation() {
+function changeLocation() {    
     switch (location.hash) {
         case `#${calendarDay.value}`:
             summary.style.display = 'none'
@@ -176,6 +163,13 @@ function changeLocation() {
             break;
         default:
             summary.style.display = 'none'
+            journal.style.display = 'flex'
+            calendarDay.value = location.hash.slice(1)
+            if (!mediaQuery.matches) {
+                setDays()
+            } else {            
+                mobileDay()
+            }
     }
 }
 
