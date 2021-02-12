@@ -22,19 +22,26 @@
 
 const marks = document.querySelectorAll('.marks')
 let allMarks = []
+
 for (let i of marks) {
     allMarks = []
     const qmark = i.querySelectorAll('.qmark')
     const ymark = i.querySelector('.ymark')
-    for (let j of qmark) {
-     allMarks.push(j.innerHTML)
+
+    if (qmark[qmark.length - 1].innerHTML) {
+        for (let j of qmark) {
+            allMarks.push(j.innerHTML)
+        }        
+        let total = 0
+        for (let x of allMarks) {
+            total += (+x)
+        }
+        ymark.innerHTML = Math.round(total / allMarks.length)
+    } else {
+        ymark.innerHTML = ''
     }
-    let total = 0;
-    for (let x of allMarks) {
-        total += (+x)
-    }
-    ymark.innerHTML= Math.round(total/allMarks.length)    
 }
+
 
 
 // const week = document.querySelectorAll('.this-week')
@@ -55,6 +62,24 @@ for (let i of marks) {
 //     summary.style.display = 'flex'
 //     journal.style.display = 'none'    
 // })}
+
+// const modalCalendar = document.querySelector('.modal__calendar')
+// const form = document.forms[0]
+
+// for (let elem of form) {
+//     if (elem.classList.contains('disabled') && !modalCalendar.value) {
+//         elem.disabled = true
+//     }
+// }
+
+// modalCalendar.addEventListener('change', () => {
+//     for (let elem of form) {
+//         if (modalCalendar.value) {
+//             elem.disabled = false
+//         }
+//     }
+// })
+
 
 
 

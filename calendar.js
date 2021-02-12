@@ -3,6 +3,8 @@ const next = document.querySelector('.next')
 const calendarDay = document.querySelector('#date')
 const journal = document.querySelector('.journal__week')
 const summary = document.querySelector('.summary-page')
+const dateDay = document.querySelectorAll('#dates')
+const weekDays = document.querySelectorAll('.journal__date-day')
 
 function correctDay(q) {
     if (q < 10) {
@@ -11,6 +13,7 @@ function correctDay(q) {
     }
     return q
 }
+
 let time = new Date();
 let year = time.getFullYear();
 let month = time.getMonth() + 1;
@@ -23,8 +26,6 @@ if (localStorage.getItem('date')) {
     calendarDay.value = today;
 }
 
-const dateDay = document.querySelectorAll('#dates')
-const weekDays = document.querySelectorAll('.journal__date-day')
 let dates = [];
 let days = [
     'Понедельник',
@@ -36,9 +37,9 @@ let days = [
     'Воскресенье'
 ]
 
-function getWeekDates(d) {
+function getWeekDates(setDay) {
     let dayMilliseconds = 24 * 60 * 60 * 1000;
-    let current_date = new Date(d);
+    let current_date = new Date(setDay);
     let monday = new Date(current_date.getTime() - (current_date.getDay() - 1) * dayMilliseconds);
 
     for (let i = 0; i < 6; i++) {
@@ -52,42 +53,36 @@ function getWeekDates(d) {
     return dates;
 }
 
+getWeekDates(calendarDay.value)
+
 let checkHash = true
 
-function hash() {
+function setLocal() {
     localStorage.setItem('date', calendarDay.value);
 }
-
-
 
 document.addEventListener('click', (e) => {
     if (e.target.closest('.this-week')) {
         checkHash = true
         location.hash = `#${calendarDay.value}`
-    }
-})
-
-document.addEventListener('click', (e) => {
-    if (e.target.closest('.final-marks')) {
+    } else if (e.target.closest('.final-marks')) {
         checkHash = false
         location.hash = '#marks'
     }
 })
 
-function changeDays(d = -1, func) {
+function changeDays(changeDay = -1, func) {
     let currDay = new Date(calendarDay.value)
-    currDay.setDate(currDay.getDate() + d);
+    currDay.setDate(currDay.getDate() + changeDay);
     calendarDay.valueAsDate = currDay;
     if (checkHash) {
         location.hash = `#${calendarDay.value}`
     }
     func()
-    hash()
+    setLocal()
 }
 
-getWeekDates(calendarDay.value)
-
-function setDays() {
+function getDescWeek() {
     dates = []
     getWeekDates(calendarDay.value)
     for (let i = 0; i < dates.length; i++) {
@@ -97,10 +92,10 @@ function setDays() {
     if (checkHash) {
         location.hash = `#${calendarDay.value}`
     }
-    hash()
+    setLocal()
 }
 
-function mobileDay() {
+function getMobileDay() {
     let mDay = new Date(calendarDay.value);
     let mWeekDay = mDay.getDay() - 1
     if (mWeekDay === -1) mWeekDay = 6
@@ -109,41 +104,41 @@ function mobileDay() {
     if (checkHash) {
         location.hash = `#${calendarDay.value}`
     }
-    hash()
+    setLocal()
 }
 
 function nextD() {
-    changeDays(1, setDays)
+    changeDays(1, getDescWeek)
 }
 function prevD() {
-    changeDays(-1, setDays)
+    changeDays(-1, getDescWeek)
 }
 function nextMobD() {
-    changeDays(1, mobileDay)
+    changeDays(1, getMobileDay)
 }
 function preMobD() {
-    changeDays(-1, mobileDay)
+    changeDays(-1, getMobileDay)
 }
 
 const mediaQuery = window.matchMedia('(max-width: 497px)')
 
 function handleTabletChange(e) {
     if (e.matches) {
-        calendarDay.removeEventListener('change', setDays)
-        calendarDay.addEventListener('change', mobileDay)
+        calendarDay.removeEventListener('change', getDescWeek)
+        calendarDay.addEventListener('change', getMobileDay)
         prev.removeEventListener('click', prevD)
         next.removeEventListener('click', nextD)
         prev.addEventListener('click', preMobD)
         next.addEventListener('click', nextMobD)
-        mobileDay()
+        getMobileDay()
     } else {
-        calendarDay.removeEventListener('change', mobileDay)
-        calendarDay.addEventListener('change', setDays)
+        calendarDay.removeEventListener('change', getMobileDay)
+        calendarDay.addEventListener('change', getDescWeek)
         prev.addEventListener('click', prevD)
         next.addEventListener('click', nextD)
         prev.removeEventListener('click', preMobD)
         next.removeEventListener('click', nextMobD)
-        setDays()
+        getDescWeek()
     }
 }
 
@@ -151,7 +146,7 @@ mediaQuery.addListener(handleTabletChange)
 
 handleTabletChange(mediaQuery)
 
-function changeLocation() {    
+function changeLocation() {
     switch (location.hash) {
         case `#${calendarDay.value}`:
             summary.style.display = 'none'
@@ -166,9 +161,9 @@ function changeLocation() {
             journal.style.display = 'flex'
             calendarDay.value = location.hash.slice(1)
             if (!mediaQuery.matches) {
-                setDays()
-            } else {            
-                mobileDay()
+                getDescWeek()
+            } else {
+                getMobileDay()
             }
     }
 }
