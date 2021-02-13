@@ -37,7 +37,7 @@ async function getJournal() {
             z.querySelector('.lesson').innerHTML = ""
             z.querySelector('.mark').innerHTML = ""
         }
-      await  fetch('http://157.230.108.157:3000/diary/lesson?date=' + journalDay[j].innerHTML)
+      await  fetch('https://157.230.108.157:3000/diary/lesson?date=' + journalDay[j].innerHTML)
             .then((resp) => resp.json())
             .then((data) => {
                 for (let g = 0; g < data.length; g++) {
@@ -328,7 +328,7 @@ document.addEventListener('click', (e) => {
     }
 })
  function getSubject () {
-    fetch('http://157.230.108.157:3000/diary/lesson', {
+    fetch('https://157.230.108.157:3000/diary/lesson', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
