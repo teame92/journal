@@ -209,7 +209,7 @@ function changeLocation() {
             journal.style.display = 'none'
             break;
         default:
-            summary.style.display = 'none'
+            summary.style.display = 'flex'
             journal.style.display = 'flex'
             calendarDay.value = location.hash.slice(1)
             if (!mediaQuery.matches) {
