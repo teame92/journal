@@ -210,7 +210,7 @@ function changeLocation() {
             break;
         default:
             summary.style.display = 'flex'
-            journal.style.display = 'flex'
+            journal.style.display = 'none'
             calendarDay.value = location.hash.slice(1)
             if (!mediaQuery.matches) {
                 getDescWeek()
