@@ -105,7 +105,7 @@ function getWeekDates(setDay) {
 
 getWeekDates(calendarDay.value)
 
-let checkHash = true
+let checkHash;
 
 function setLocal() {
     localStorage.setItem('date', calendarDay.value);
